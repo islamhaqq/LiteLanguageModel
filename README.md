@@ -50,7 +50,7 @@ python train.py --data_path "data/my_dataset.txt" --epochs 5 --batch_size 32
 **Stay Updated**: If the TensorLite repository updates, you can update your submodule to the latest commit by:
 
 ```bash
-git submodule update --remote external/TensorLite
+git submodule update --remote TensorLite
 git commit -am "Updated TensorLite submodule to latest"
 git push
 ```
