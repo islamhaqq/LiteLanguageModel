@@ -1,0 +1,3 @@
+[submodule "TensorLite"]
+	path = TensorLite
+	url = https://github.com/SyedAman/TensorLite
