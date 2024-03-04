@@ -14,3 +14,8 @@ target_link_libraries(LiteLanguageModel PRIVATE TensorLite)
 
 set_target_properties(LiteLanguageModel PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
+
+add_custom_command(TARGET LiteLanguageModel POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<TARGET_FILE:TensorLite>
+        $<TARGET_FILE_DIR:LiteLanguageModel>)
