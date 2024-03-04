@@ -1,7 +1,12 @@
+#include <iostream>
+
 #include "LLM.h"
 
 int main()
 {
+    constexpr int numEpochs = 10;
+    constexpr float learningRate = 0.01f;
+
     // Setup: Define model, allocate memory, initialize data, etc.
     DenseLayer denseLayer(768, 2048); // Layer
 
@@ -27,10 +32,13 @@ int main()
     gradOutput.copyDataToDevice(gradOutputData);
 
     // Training loop for one iteration
-    denseLayer.forward(input, output);
-    denseLayer.backward(input, gradInput, gradOutput);
-
-    // @TODO: Update parameters (would involve applying gradients to weights and biases)
+    for (int epoch = 0; epoch < numEpochs; ++epoch) {
+        denseLayer.forward(input, output);
+        denseLayer.backward(input, gradInput, gradOutput);
+        // @TODO: Update parameters (would involve applying gradients to weights and biases)
+        // denseLayer.updateParameters(learningRate);
+        std::cout << "Epoch " << epoch << " complete.\n";
+    }
 
     return 0;
 }
