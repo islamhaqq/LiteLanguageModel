@@ -3,7 +3,9 @@ project(LiteLanguageModel)
 
 set(CMAKE_CXX_STANDARD 26)
 
-add_executable(LiteLanguageModel main.cpp)
+add_executable(LiteLanguageModel main.cpp
+        LLM.cpp
+        LLM.h)
 
 add_subdirectory(TensorLite)
 
